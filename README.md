@@ -1,92 +1,232 @@
-<div align="center">📊 Leitor de Arquivo CSV - Análise de Vendas 
+<div align="center">
 
-📈Uma aplicação de desktop Java Swing para ler, processar e analisar dados de vendas de arquivos CSV.</div>
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="CSV Analyzer Logo" width="110" />
 
-----------------------------------------------------------------------------------------------------
-🚀 Sobre o Projeto
+# 📊 Leitor de Arquivo CSV — Análise de Vendas
 
-Esta aplicação é uma ferramenta de análise de dados de vendas desenvolvida em Java. Ela permite ao utilizador carregar um ficheiro CSV e, automaticamente, processa as informações para exibir:
+**Uma aplicação de desktop em Java Swing para ler, processar e analisar**
+**dados de vendas a partir de arquivos CSV.**
 
-O faturamento total por loja.
+<br>
 
-O produto mais vendido (em quantidade).
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/Java%20Swing-GUI-007396?style=for-the-badge&logo=java&logoColor=white)
+![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![CSV](https://img.shields.io/badge/CSV-Análise%20de%20Dados-217346?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completo-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-O conteúdo bruto do ficheiro CSV para visualização.
+</div>
 
-A interface foi criada com Java Swing (JFrame) e o projeto é gerido com Apache Maven.
+---
 
-----------------------------------------------------------------------------------------------------
-✨ Funcionalidades Principais
+## 📚 Tabela de Conteúdos
 
-📂 Menu Arquivo > Procurar...: Abre um seletor de ficheiros (JFileChooser) para localizar e selecionar um ficheiro .csv.
+> Navegue rapidamente pelas seções do projeto.
 
-📰 Menu Arquivo > Abrir...: Após selecionar um ficheiro, esta ação:
+| # | Seção |
+|:-:|:------|
+| 1 | [📖 Sobre o Projeto](#-sobre-o-projeto) |
+| 2 | [✨ Funcionalidades Principais](#-funcionalidades-principais) |
+| 3 | [🛠️ Pilha de Tecnologias](#️-pilha-de-tecnologias) |
+| 4 | [📋 Formato do CSV Esperado](#-formato-do-csv-esperado) |
+| 5 | [📂 Estrutura do Projeto](#-estrutura-do-projeto) |
+| 6 | [🚀 Como Compilar e Executar](#-como-compilar-e-executar) |
+| 7 | [🤝 Como Contribuir](#-como-contribuir) |
+| 8 | [👨‍💻 Autor](#-autor) |
+| 9 | [📄 Licença](#-licença) |
 
-Exibe o conteúdo bruto do CSV na área de texto principal.
+---
 
-Processa os dados (ignorando o cabeçalho).
+## 📖 Sobre o Projeto
 
-Calcula e exibe o faturamento total das primeiras quatro lojas encontradas.
+> **Leitor de CSV** é uma ferramenta de análise de dados de vendas desenvolvida em **Java** com interface gráfica criada com **Java Swing**.
 
-Calcula e exibe o produto mais vendido e a sua quantidade total.
+A aplicação permite ao usuário carregar um arquivo `.csv` e, automaticamente, processa as informações para exibir análises relevantes sobre o desempenho das lojas: faturamento por unidade, produto mais vendido e visualização bruta dos dados. O projeto é gerenciado com **Apache Maven**.
 
-🧹 Botão LIMPAR (CLEAR): Limpa todos os campos de texto e a área de visualização do CSV.
+---
 
-🚪 Menu Arquivo > Sair...: Fecha a aplicação.
+## ✨ Funcionalidades Principais
 
-----------------------------------------------------------------------------------------------------
-🛠️ Tecnologias Utilizadas
+| Ícone | Ação | Descrição |
+|:-----:|:-----|:----------|
+| 📂 | **Arquivo → Procurar...** | Abre um `JFileChooser` para localizar e selecionar o arquivo `.csv` desejado. |
+| 📰 | **Arquivo → Abrir...** | Exibe o conteúdo bruto do CSV, calcula o faturamento total por loja e identifica o produto mais vendido. |
+| 📈 | **Faturamento por Loja** | Calcula e exibe o faturamento total das primeiras quatro lojas encontradas no arquivo. |
+| 🏆 | **Produto Mais Vendido** | Identifica e exibe o produto com maior quantidade total vendida. |
+| 🧹 | **Botão LIMPAR** | Limpa todos os campos de texto e a área de visualização do CSV. |
+| 🚪 | **Arquivo → Sair...** | Fecha a aplicação. |
 
-Java Swing: Para a construção da interface gráfica (GUI).
+---
 
-Apache Maven: Para gestão do projeto e dependências.
+## 🛠️ Pilha de Tecnologias
 
-----------------------------------------------------------------------------------------------------
-📋 Formato do CSV Esperado
+| Tecnologia | Função no Projeto |
+|:-----------|:------------------|
+| **Java 21+** | Linguagem principal — lógica de leitura, processamento e análise dos dados. |
+| **Java Swing** | Construção da interface gráfica desktop (`JFrame`, `JFileChooser`, `JTextArea`). |
+| **Apache Maven** | Gerenciamento do projeto, dependências e ciclo de build. |
 
-Para que a leitura e os cálculos funcionem corretamente, o ficheiro CSV deve seguir este formato:
+---
 
-Delimitador: Ponto e vírgula (;).
+## 📋 Formato do CSV Esperado
 
-Cabeçalho: O programa está configurado para ignorar a primeira linha (cabeçalho).
+> Para que a leitura e os cálculos funcionem corretamente, o arquivo CSV deve seguir a estrutura abaixo.
 
-----------------------------------------------------------------------------------------------------
-⚙️ Como Compilar e ExecutarPré-requisitos
+| Propriedade | Valor Esperado |
+|:------------|:---------------|
+| **Delimitador** | Ponto e vírgula (`;`) |
+| **Cabeçalho** | A **primeira linha** é ignorada automaticamente pelo programa. |
+| **Encoding** | UTF-8 recomendado. |
 
-JDK 21 (ou superior)
+### 📄 Exemplo de Arquivo CSV
 
-Apache Maven
+```csv
+loja;produto;quantidade;preco_unitario
+Loja A;Produto X;10;25.00
+Loja A;Produto Y;5;40.00
+Loja B;Produto X;20;25.00
+Loja B;Produto Z;8;15.00
+Loja C;Produto Y;12;40.00
+Loja D;Produto Z;3;15.00
+```
 
-----------------------------------------------------------------------------------------------------
-1. Executando pela Linha de Comando
+---
 
-# 1. Clone o repositório:
-git clone [URL_DO_SEU_REPOSITORIO]
+## 📂 Estrutura do Projeto
 
-# 2. Navegue até à pasta do projeto (AplicacaoLoja):
+```plaintext
+AplicacaoLoja/
+│
+├── 📄 pom.xml                              # ⚙️  Configurações e dependências do Maven
+│
+└── 📁 src/
+    └── 📁 main/
+        └── 📁 java/
+            └── 📁 aula02/
+                └── 📁 aplicacaoloja/
+                    ├── 📄 Painel.java      # 🖥️  Interface gráfica principal (JFrame) ← CORE
+                    ├── 📄 Loja.java        # 🏛️  Modelo de dados — Loja
+                    ├── 📄 Produto.java     # 🏛️  Modelo de dados — Produto
+                    └── 📄 LeitorCSV.java   # 📂 Lógica de leitura e parsing do CSV
+```
+
+---
+
+## 🚀 Como Compilar e Executar
+
+### 📋 Pré-requisitos
+
+| Requisito | Detalhe |
+|:----------|:--------|
+| **JDK** | Versão **21 ou superior** instalada e configurada no `PATH`. |
+| **Apache Maven** | Instalado e configurado no `PATH`. |
+| **Git** | Para clonar o repositório. |
+
+---
+
+### 💻 Opção 1 — Linha de Comando
+
+**1. Clone o repositório e acesse a pasta do projeto:**
+
+```bash
+git clone https://github.com/VictorHJesusSantiago/AplicacaoLoja.git
 cd AplicacaoLoja
+```
 
-# 3. Compile o projeto com Maven:
+**2. Compile o projeto com Maven:**
+
+```bash
 mvn compile
+```
 
-# 4. Execute a classe principal (Painel.java)
-# (Use o comando apropriado para o seu SO)
+**3. Execute a classe principal:**
 
-# Windows
+```bash
+# Windows / Linux / macOS
 java -cp "target/classes" aula02.aplicacaoloja.Painel
+```
 
-# Linux/macOS
-java -cp "target/classes" aula02.aplicacaoloja.Painel
+---
 
-----------------------------------------------------------------------------------------------------
-2. Executando por uma IDE (Recomendado)
+### 🖥️ Opção 2 — IDE (Recomendado)
 
-Abra a sua IDE preferida (IntelliJ IDEA, NetBeans, Eclipse).
+```
+1. Abra sua IDE preferida (IntelliJ IDEA, NetBeans ou Eclipse)
+2. File → Open → Importe como "Projeto Maven existente"
+3. Aguarde o Maven sincronizar as dependências
+4. Localize: src/main/java/aula02/aplicacaoloja/Painel.java
+5. Clique com o botão direito → "Run" (ou pressione Shift + F10)
+```
 
-Importe o projeto como um Projeto Maven existente.
+---
 
-Localize o ficheiro src/main/java/aula02/aplicacaoloja/Painel.java.
+### 🎯 Como Usar a Aplicação
 
-Clique com o botão direito e selecione "Run" (Executar) no método main.
+| Passo | Ação |
+|:-----:|:-----|
+| 1️⃣ | Inicie a aplicação pelo método acima. |
+| 2️⃣ | Clique em **Arquivo → Procurar...** e selecione seu arquivo `.csv`. |
+| 3️⃣ | Clique em **Arquivo → Abrir...** para processar e visualizar os resultados. |
+| 4️⃣ | Analise o **faturamento por loja** e o **produto mais vendido** nos campos exibidos. |
+| 5️⃣ | Use o botão **LIMPAR** para resetar todos os campos e carregar um novo arquivo. |
 
-<div align="center"><strong>Autor:</strong> VICTOR HENRIQUE DE JESUS SANTIAGO</div>
+---
+
+## 🤝 Como Contribuir
+
+> Contribuições são muito bem-vindas! Siga as etapas abaixo para colaborar de forma organizada.
+
+| Passo | Ação | Comando |
+|:-----:|:-----|:--------|
+| 1️⃣ | **Fork** | Crie um fork do repositório para a sua conta. | — |
+| 2️⃣ | **Branch** | Crie sua feature branch a partir da `main`. | `git checkout -b feature/NovaFeature` |
+| 3️⃣ | **Commit** | Salve as alterações com mensagem clara e semântica. | `git commit -m 'feat: Adiciona NovaFeature'` |
+| 4️⃣ | **Push** | Envie a branch para o repositório remoto. | `git push origin feature/NovaFeature` |
+| 5️⃣ | **Pull Request** | Abra um PR detalhando as mudanças realizadas. | — |
+
+<div align="center">
+
+<br>
+
+**Se este projeto foi útil para os seus estudos, deixe uma estrela ⭐️ no repositório!**
+
+</div>
+
+---
+
+## 👨‍💻 Autor
+
+<div align="center">
+
+<br>
+
+**Victor H. J. Santiago**
+
+<br>
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VictorHJesusSantiago)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victor-henrique-de-jesus-santiago/)
+
+</div>
+
+---
+
+## 📄 Licença
+
+<div align="center">
+
+Este projeto está distribuído sob a **Licença MIT**.
+Consulte o arquivo [`LICENSE`](./LICENSE) no repositório para mais informações.
+
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+</div>
+
+---
+
+<div align="center">
+
+*Feito com 📊 e Java por **Victor H. J. Santiago***
+
+</div>
