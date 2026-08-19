@@ -1,835 +1,968 @@
 <div align="center">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="CSV Analyzer Logo" width="110" />
+**🌐 Choose Language / Selecione o Idioma / Elija el Idioma**
 
-# 📊 CSV Sales Analyzer
-
-**A Java Swing desktop application to read, process and analyze sales data from CSV files — with full Software Engineering documentation.**
-
-<br>
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Swing](https://img.shields.io/badge/Java%20Swing-GUI-007396?style=for-the-badge&logo=java&logoColor=white)
-![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
-![CSV](https://img.shields.io/badge/CSV-Data%20Analysis-217346?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-
-<br>
-
-🌐 **Choose Language / Selecione o idioma / Elija su idioma**
-
-[![English](https://img.shields.io/badge/ENGLISH-CURRENT-blue?style=for-the-badge)](README.md)
-[![Português](https://img.shields.io/badge/PORTUGUÊS-README__PT.md-green?style=for-the-badge)](README_PT.md)
-[![Español](https://img.shields.io/badge/ESPAÑOL-README__ES.md-yellow?style=for-the-badge)](README_ES.md)
+[![🇺🇸 English](https://img.shields.io/badge/🇺🇸%20English-Current-005CA5?style=for-the-badge)](README.md)&nbsp;&nbsp;&nbsp;[![🇧🇷 Português](https://img.shields.io/badge/🇧🇷%20Português-README__PT.md-009C3B?style=for-the-badge)](README_PT.md)&nbsp;&nbsp;&nbsp;[![🇪🇸 Español](https://img.shields.io/badge/🇪🇸%20Español-README__ES.md-C60B1E?style=for-the-badge)](README_ES.md)
 
 </div>
 
 ---
 
-## 📖 About the Project
+<div align="center">
 
-> **CSV Sales Analyzer** is a desktop tool built in **Java** with a **Java Swing** GUI, developed as part of an Object-Oriented Programming (OOP) course assignment.
-
-The application lets the user load a `.csv` file containing sales records and automatically processes the data to display relevant business analytics: **revenue per store**, the **best-selling product**, and a raw preview of the file contents. The project is managed with **Apache Maven** and follows the package `aula02.aplicacaoloja`.
-
-This README also documents the **full Software Engineering artifact set** produced for this project — requirements, use cases, UML diagrams, data models, DFDs, architecture, personas and wireframes — click each section below to expand it.
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Role in the Project |
-|:-----------|:---------------------|
-| **Java 21+** | Core language — reading, processing and analyzing the data. |
-| **Java Swing** | Desktop GUI (`JFrame`, `JFileChooser`, `JTextArea`, `JMenuBar`). |
-| **Apache Maven** | Project, dependency and build lifecycle management. |
+```
+██╗      ██████╗      ██████╗███████╗██╗   ██╗
+██║     ██╔═══██╗    ██╔════╝██╔════╝██║   ██║
+██║     ██║   ██║    ██║     ███████╗██║   ██║
+██║     ██║   ██║    ██║     ╚════██║╚██╗ ██╔╝
+███████╗╚██████╔╝    ╚██████╗███████║ ╚████╔╝
+╚══════╝ ╚═════╝      ╚═════╝╚══════╝  ╚═══╝
+        Java Swing Desktop CSV Sales Reader
+```
 
 ---
 
-## 📚 Table of Contents
+[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![Swing](https://img.shields.io/badge/GUI-Java%20Swing-007396?style=for-the-badge&logo=java&logoColor=white)](https://docs.oracle.com/javase/tutorial/uiswing/)
+[![Maven](https://img.shields.io/badge/Build-Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
+[![NetBeans](https://img.shields.io/badge/IDE-NetBeans%20Form-1B6AC6?style=for-the-badge&logo=apache-netbeans-ide&logoColor=white)]()
+[![CSV](https://img.shields.io/badge/Data-CSV%20(%3B)-217346?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-Educational%20Prototype-8B5CF6?style=for-the-badge)]()
 
-> Click any link below to jump to a section, then click the section title to expand/collapse it.
+<br/>
 
-| # | Section |
-|:-:|:--------|
-| 1 | [📋 Requirements](#1-requirements) |
-| 2 | [🧩 Use Cases](#2-use-cases) |
-| 3 | [🔗 Requirements Traceability Matrix](#3-requirements-traceability-matrix) |
-| 4 | [📄 Software Requirements Specification (SRS)](#4-software-requirements-specification-srs) |
-| 5 | [🗺️ UML & Structural Diagrams](#5-uml--structural-diagrams) |
-| 6 | [🗄️ Data Model & Data Dictionary](#6-data-model--data-dictionary) |
-| 7 | [🔄 Data Flow Diagram (DFD)](#7-data-flow-diagram-dfd) |
-| 8 | [🏗️ Architecture Diagram & Flowchart](#8-architecture-diagram--flowchart) |
-| 9 | [👤 Persona & User Journey Map](#9-persona--user-journey-map) |
-| 10 | [🎨 Wireframes & Mockups](#10-wireframes--mockups) |
+> **A Java Swing desktop application that reads semicolon-delimited sales CSV files**
+> and computes revenue per store and the best-selling product entirely in memory.
+
+<br/>
+
+![Classes](https://img.shields.io/badge/Java%20Classes-4-3DDC84?style=flat-square)
+![Lines](https://img.shields.io/badge/Painel.java-449%20lines-10B981?style=flat-square)
+![Package](https://img.shields.io/badge/Package-aula02.aplicacaoloja-FF6B35?style=flat-square)
+![Dependencies](https://img.shields.io/badge/External%20Dependencies-0-8B5CF6?style=flat-square)
+![Tests](https://img.shields.io/badge/Automated%20Tests-0-B71C1C?style=flat-square)
+
+</div>
 
 ---
+
+## 📑 Table of Contents
 
 <details>
-<summary><h2>1. Requirements 📋</h2></summary>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-### ✅ Functional Requirements (FR)
+<table>
+<tr>
+<td valign="top" width="50%">
 
-| ID | Description |
-|:---|:------------|
-| **FR01** | The system shall allow the user to select a `.csv` file via a file chooser dialog (*File → Browse...*). |
-| **FR02** | The system shall read and parse a `;`-delimited CSV file, skipping the header row. |
-| **FR03** | The system shall display the raw content of the CSV file in a text area (*File → Open...*). |
-| **FR04** | The system shall calculate the total revenue (`quantity × unit price`) per store. |
-| **FR05** | The system shall display the revenue of up to 4 distinct stores in separate fields. |
-| **FR06** | The system shall identify the product with the highest total quantity sold across all rows. |
-| **FR07** | The system shall display the best-selling product's name and total quantity sold. |
-| **FR08** | The system shall provide a **CLEAR** action that resets all result fields and the preview area. |
-| **FR09** | The system shall provide an **Exit** action (*File → Exit*) that terminates the application. |
-| **FR10** | The system shall provide a **Save** action (*File → Save*) as a legacy/extra menu item. |
+**🏗️ System**
+- [Overview](#-overview)
+- [System Architecture](#-system-architecture)
+- [Technology Stack](#-technology-stack)
+- [Design Patterns](#-design-patterns-applied)
+- [Project Structure](#-project-structure)
 
-### ⚙️ Non-Functional Requirements (NFR)
+**📦 Modules**
+- [Painel — Main Window](#-painel--main-window-controller)
+- [Venda — Sale Record](#-venda--sale-record-model)
+- [AplicacaoLoja — Entry Point Stub](#-aplicacaoloja--entry-point-stub)
+- [totalLoja1 — Unused Stub](#-totalloja1--unused-stub)
+- [Research Assets](#-research-assets--icons--sample-data)
 
-| ID | Category | Description |
-|:---|:---------|:------------|
-| **NFR01** | Usability | The GUI must be menu-driven, with keyboard shortcuts (`Ctrl+P`, `Ctrl+A`, `Ctrl+S`, `Esc`). |
-| **NFR02** | Portability | The application must run on any OS with **JDK 21+** installed (cross-platform Swing). |
-| **NFR03** | Performance | The CSV must be processed in a single pass (`O(n)`) entirely in memory. |
-| **NFR04** | Maintainability | The codebase must be organized as a Maven project under package `aula02.aplicacaoloja`. |
-| **NFR05** | Reliability | I/O errors must be caught and reported to the user via `JOptionPane` dialogs. |
-| **NFR06** | Encoding | CSV files should use **UTF-8** encoding for correct character rendering. |
+</td>
+<td valign="top" width="50%">
 
-### 📐 Business Rules (BR)
+**💼 Business**
+- [Business Rules](#-business-rules)
+- [Functional Requirements](#-functional-requirements)
+- [Non-Functional Requirements](#-non-functional-requirements)
 
-| ID | Rule |
-|:---|:-----|
-| **BR01** | The CSV delimiter **must** be a semicolon (`;`). |
-| **BR02** | The **first line** of the CSV is always treated as a header and skipped. |
-| **BR03** | Revenue per store = **sum of (quantity × unit price)** for every row belonging to that store. |
-| **BR04** | Only the **first 4 distinct stores** found in the file are shown (one per result field). |
-| **BR05** | The best-selling product is the one with the **highest cumulative quantity** across all rows. |
-| **BR06** | A store is identified by an **exact string match** on the store name column. |
+**📐 Design**
+- [Data Model](#-data-model)
+- [System Flows](#-system-flows)
 
-### 🌐 Domain Requirements
+**🔐 Security & Ops**
+- [Security](#-security)
+- [Installation & Execution](#-installation--execution)
+- [Automated Tests](#-automated-tests)
+- [Metrics & Monitoring](#-metrics--monitoring)
+- [Known Limitations](#-known-limitations)
 
-- **Domain**: Retail sales analytics for small/medium businesses with multiple store branches.
-- **Glossary**: `Loja` = Store, `Produto` = Product, `Venda` = Sale, `Faturamento` = Revenue, `Quantidade` = Quantity.
-- The system assumes each row of the CSV represents **one sale transaction** of one product at one store.
+</td>
+</tr>
+</table>
 
-### 🗃️ Data Requirements
-
-- **Input**: a single `.csv` file, `;`-delimited, UTF-8 encoded, with a header row + data rows (see [Data Dictionary](#6-data-model--data-dictionary)).
-- **Output**: in-memory only — results are shown in the GUI and **not persisted** to disk (no database).
-- **Volume**: designed for small-to-medium files that fit comfortably in memory.
-
-### 🖥️ Interface Requirements
-
-- **Graphical**: a single `JFrame` window with a `JMenuBar` (`Arquivo`: *Procurar*, *Abrir*, *Salvar*, *Sair*), a `JTextArea` for the raw preview, five `JTextField`s for results, and a `JButton` (`LIMPAR`).
-- **File System**: integration via `JFileChooser` (file selection) and `java.io.BufferedReader`/`FileReader` (file reading).
-- **No network or external API interfaces** are required.
+---
 
 </details>
 
----
+## 🌟 Overview
 
 <details>
-<summary><h2>2. Use Cases 🧩</h2></summary>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-### 🎭 Actors
+**AplicacaoLoja** (packaged in this repository as *leitor_de_arquivo_csv*, "CSV file reader") is a small desktop application written in **Java** using the **Swing** toolkit. It was built as a coursework assignment (`aula02`, "class 02") for an Object-Oriented Programming module, under the author name recorded in the source header, Victor Henrique de Jesus Santiago.
 
-| Actor | Description |
-|:------|:-------------|
-| **User** | The store employee/manager who loads and analyzes the sales CSV file. |
+The application opens a single window (`Painel`, a `JFrame`) with a menu bar offering four actions: browse for a CSV file, open and parse it, "save" it, and exit. Once a file is opened, the raw text is dumped into a scrollable text area and, in the same pass, the code walks every data row to accumulate **revenue per store** (unit price × quantity) and to determine the **best-selling product** by cumulative quantity sold. Results are shown in plain `TextField`/`JTextField` components rather than a table or chart.
 
-### 📋 Use Case Summary
+There is no database, no network access, and no external library beyond the JDK itself — the entire persistence model is "read a `.csv` file from disk, compute in memory, show the numbers." The `pom.xml` declares no dependencies at all, so the whole feature set is implemented with `java.io`, `java.util` and `javax.swing` from the standard library.
 
-| ID | Use Case | Actor | Description |
-|:---|:---------|:------|:-------------|
-| **UC01** | Select CSV File | User | Opens a file chooser to pick the `.csv` file to analyze. |
-| **UC02** | Open & Process CSV File | User | Reads, parses and aggregates the selected file's data. |
-| **UC03** | Calculate Revenue per Store | *(included by UC02)* | Sums `quantity × unit price` grouped by store. |
-| **UC04** | Identify Best-Selling Product | *(included by UC02)* | Finds the product with the highest cumulative quantity. |
-| **UC05** | Clear Results | User | Resets all fields and the preview area. |
-| **UC06** | Exit Application | User | Closes the application. |
+### 🎯 System Objectives
 
-### 🗺️ Use Case Diagram
+| Objective | Description |
+|-----------|-------------|
+| 📂 **File Selection** | Let the user pick a `.csv` file from disk via `JFileChooser` (menu *ARQUIVO → PROCURAR*) |
+| 📖 **Raw Preview** | Display the unparsed file content in a scrollable `TextArea` (menu *ARQUIVO → ABRIR*) |
+| 🧮 **Revenue Aggregation** | Sum `Preço Unitário × Quantidade` per distinct store name found in the file |
+| 🏆 **Best-Seller Detection** | Track cumulative quantity sold per product name and report the highest one |
+| 🖥️ **Result Display** | Show up to four store totals in dedicated text fields and the top product in a fifth |
+| 🧹 **Reset** | Clear the preview and every result field with one **LIMPAR (CLEAR)** button |
+| 🚪 **Exit** | Terminate the JVM cleanly from the *SAIR* menu item or the `Esc` key |
+| 🎓 **Educational Scope** | Demonstrate file I/O, Swing event handling and simple in-memory aggregation, not production robustness |
+
+---
+
+</details>
+
+## 🏗️ System Architecture
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+### Module Diagram
+
+```mermaid
+flowchart TB
+    subgraph UI["📱  PRESENTATION LAYER"]
+        direction LR
+        FORM["🪟 Painel.form\n─────────────\nNetBeans GroupLayout\nJMenuBar x2\nTextArea + 5 fields"]
+        MENU["📋 Menu Actions\n─────────────\nPROCURAR · ABRIR\nSALVAR · SAIR"]
+    end
+
+    subgraph CTRL["🏛️  CONTROLLER"]
+        MAIN["Painel.java\n─────────────────────\n• Event listeners\n• File path state\n• CSV parsing loop\n• Aggregation logic"]
+    end
+
+    subgraph CORE["⚙️  DOMAIN"]
+        direction TB
+        PARSE["🔍 CSV Line Split\nString.split(\";\")\n────────────\n7 columns per row"]
+        AGG["🧮 Aggregation\nHashMap + ArrayList\n────────────\nRevenue per store\nQuantity per product"]
+        MODEL["📦 Venda.java\nSale Record\n────────────\nloja : String\nprecoUnitario : float"]
+    end
+
+    subgraph SYS["💾  FILE SYSTEM"]
+        direction LR
+        CSVFILE[("📄 Selected .csv\nUser-chosen path\n─────────────\n;-delimited, UTF-8")]
+    end
+
+    subgraph OUT["🖥️  OUTPUT"]
+        FIELDS["📊 Result Fields\n──────────────────────\ntextField1-4 : store totals\ntextField5 : best product"]
+    end
+
+    FORM -->|"addActionListener"| MAIN
+    MENU -->|"actionPerformed"| MAIN
+    MAIN -->|"JFileChooser"| CSVFILE
+    MAIN --> PARSE
+    PARSE --> MODEL
+    PARSE --> AGG
+    MODEL --> AGG
+    AGG --> FIELDS
+    CSVFILE -->|"BufferedReader"| PARSE
+    MAIN -->|"setText"| FIELDS
+
+    style UI fill:#1e3a5f,color:#fff,stroke:#4a90d9
+    style CTRL fill:#1a3a1a,color:#fff,stroke:#4caf50
+    style CORE fill:#3a1a1a,color:#fff,stroke:#e57373
+    style SYS fill:#3a2a1a,color:#fff,stroke:#ffb74d
+    style OUT fill:#2a1a3a,color:#fff,stroke:#ce93d8
+```
+
+### Architecture Layers
 
 ```mermaid
 flowchart LR
-    User(["👤 User"])
+    subgraph L1["📱 Presentation"]
+        A1["Painel.form\nGroupLayout"]
+    end
+    subgraph L2["🏛️ Controller"]
+        B1["Painel.java\nEvent Handlers"]
+    end
+    subgraph L3["⚙️ Domain"]
+        C1["Venda.java\nCSV Parsing Loop"]
+    end
+    subgraph L4["💾 Infrastructure"]
+        D1["java.io\nBufferedReader / PrintWriter"]
+    end
 
-    UC1(["Select CSV File"])
-    UC2(["Open & Process CSV File"])
-    UC3(["Calculate Revenue per Store"])
-    UC4(["Identify Best-Selling Product"])
-    UC5(["Clear Results"])
-    UC6(["Exit Application"])
+    L1 --> L2 --> L3 --> L4
 
-    User --- UC1
-    User --- UC2
-    User --- UC5
-    User --- UC6
-    UC2 -.include.-> UC3
-    UC2 -.include.-> UC4
+    style L1 fill:#1565C0,color:#fff
+    style L2 fill:#2E7D32,color:#fff
+    style L3 fill:#6A1B9A,color:#fff
+    style L4 fill:#BF360C,color:#fff
 ```
-
-### 📝 Detailed Use Case — UC02: Open & Process CSV File
-
-| Field | Description |
-|:------|:-------------|
-| **Preconditions** | A valid `.csv` file path has been set via UC01. |
-| **Main Flow** | 1. User clicks *File → Open...* <br> 2. System reads the file line by line <br> 3. System skips the header row <br> 4. System splits each row by `;` <br> 5. System updates the revenue-per-store list <br> 6. System updates the best-seller product map <br> 7. System displays the raw content and computed results |
-| **Alternative Flow** | If the file cannot be read, the system shows an error dialog (`JOptionPane.ERROR_MESSAGE`). |
-| **Postconditions** | Result fields and preview area show updated values. |
-
-</details>
 
 ---
 
-<details>
-<summary><h2>3. Requirements Traceability Matrix 🔗</h2></summary>
-
-| Requirement | Use Case | Class / Method | Diagram(s) | Verification |
-|:------------|:---------|:----------------|:-----------|:--------------|
-| FR01 / BR06 | UC01 | `Painel.jMenuProcurarActionPerformed()` | Use Case, Sequence | Manual GUI test |
-| FR02 / BR01 / BR02 | UC02 | `Painel.jMenuAbrirActionPerformed()` | Activity, DFD | Manual GUI test |
-| FR03 | UC02 | `Painel.textArea` | Sequence, Wireframe | Manual GUI test |
-| FR04 / BR03 | UC02, UC03 | `Venda.precoUnitario`, `comercio` list | Class, Activity, DFD | Manual GUI test |
-| FR05 / BR04 | UC03 | `textField1`–`textField4` | Sequence, Wireframe | Manual GUI test |
-| FR06 / BR05 | UC02, UC04 | `produtosVendidos` map | Activity, DFD, Data Lineage | Manual GUI test |
-| FR07 | UC04 | `textField5` | Sequence, Wireframe | Manual GUI test |
-| FR08 | UC05 | `Painel.jButtonClearActionPerformed()` | State Machine, Use Case | Manual GUI test |
-| FR09 | UC06 | `Painel.jMenuSairActionPerformed()` | State Machine, Use Case | Manual GUI test |
-| FR10 | — | `Painel.jMenuSalvarActionPerformed()` | Use Case | Manual GUI test |
-| NFR01 | All | `Painel` (menu bar, shortcuts) | Component, Wireframe | Manual review |
-| NFR02 | — | Maven `pom.xml` | Deployment | Build check (`mvn compile`) |
-| NFR03 | UC02 | `jMenuAbrirActionPerformed()` (single loop) | Activity | Code review |
-| NFR05 | UC02 | `try/catch` + `JOptionPane` | Sequence | Manual GUI test (invalid file) |
-
 </details>
+
+## 🛠️ Technology Stack
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><strong>🧠 Language</strong></td>
+<td>Java</td>
+<td>21</td>
+<td>Application source language (<code>maven.compiler.source</code>/<code>target</code> in <code>pom.xml</code>)</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>—</td>
+<td><code>Painel.form</code> (NetBeans GUI descriptor), <code>pom.xml</code>, <code>nbactions.xml</code></td>
+</tr>
+<tr>
+<td rowspan="3"><strong>🖥️ UI Toolkit</strong></td>
+<td>Java Swing</td>
+<td>JDK-bundled</td>
+<td><code>JFrame</code>, <code>JMenuBar</code>, <code>JFileChooser</code>, <code>JOptionPane</code></td>
+</tr>
+<tr>
+<td>AWT</td>
+<td>JDK-bundled</td>
+<td>Legacy <code>java.awt.TextField</code>, <code>java.awt.TextArea</code>, <code>java.awt.Label</code> components mixed into the form</td>
+</tr>
+<tr>
+<td>NetBeans GUI Builder</td>
+<td>Form v1.3</td>
+<td>Generated the <code>GroupLayout</code> in <code>initComponents()</code></td>
+</tr>
+<tr>
+<td rowspan="2"><strong>💾 I/O</strong></td>
+<td><code>java.io</code></td>
+<td>JDK-bundled</td>
+<td><code>BufferedReader</code>, <code>FileReader</code>, <code>PrintWriter</code> for reading/writing the CSV file</td>
+</tr>
+<tr>
+<td><code>java.util</code></td>
+<td>JDK-bundled</td>
+<td><code>ArrayList&lt;Venda&gt;</code>, <code>HashMap&lt;String,Integer&gt;</code> for in-memory aggregation</td>
+</tr>
+<tr>
+<td rowspan="2"><strong>🔧 Build</strong></td>
+<td>Apache Maven</td>
+<td>model 4.0.0</td>
+<td><code>pom.xml</code> — groupId <code>Aula02</code>, artifactId <code>AplicacaoLoja</code>, packaging <code>jar</code></td>
+</tr>
+<tr>
+<td>exec-maven-plugin</td>
+<td>3.0.0</td>
+<td>Referenced by <code>nbactions.xml</code> to run/debug <code>Painel</code> directly from the IDE</td>
+</tr>
+<tr>
+<td><strong>🧪 Testing</strong></td>
+<td>None</td>
+<td>—</td>
+<td>No <code>src/test</code> directory or test dependency exists in this project</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
-<details>
-<summary><h2>4. Software Requirements Specification (SRS) 📄</h2></summary>
-
-### 1. Introduction
-
-- **Purpose**: Describe the functional and non-functional requirements for the CSV Sales Analyzer, a desktop application that computes sales analytics from a CSV file.
-- **Scope**: Single-user desktop application; reads one CSV file per session; no persistence layer; no network communication.
-- **Definitions**: see [Domain Requirements](#1-requirements) glossary.
-
-### 2. Overall Description
-
-- **Product Perspective**: Standalone Java Swing application, packaged with Maven, entry point `Painel.main()`.
-- **User Classes**: A single class of user — store staff performing sales analysis.
-- **Operating Environment**: Any desktop OS with JDK 21+ (Windows, Linux, macOS).
-- **Constraints**: CSV must be `;`-delimited; first 4 stores only are displayed; in-memory processing only.
-
-### 3. Specific Requirements
-
-- See [Section 1 — Requirements](#1-requirements) for the full **FR / NFR / BR / Domain / Data / Interface** requirements.
-- See [Section 2 — Use Cases](#2-use-cases) for behavioral specification.
-- See [Section 6 — Data Model & Data Dictionary](#6-data-model--data-dictionary) for data specification.
-
-### 4. Appendices
-
-- [UML & Structural Diagrams](#5-uml--structural-diagrams)
-- [Data Flow Diagram (DFD)](#7-data-flow-diagram-dfd)
-- [Architecture Diagram & Flowchart](#8-architecture-diagram--flowchart)
-- [Persona & User Journey Map](#9-persona--user-journey-map)
-- [Wireframes & Mockups](#10-wireframes--mockups)
-
 </details>
+
+## 🎨 Design Patterns Applied
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+| Pattern | Where | Rationale |
+|---------|-------|-----------|
+| 👂 **Observer / Callback** | `addActionListener` on every button, menu item and field in `initComponents()` | Swing's event model drives all user interaction through registered listeners |
+| 🧭 **Facade (thin)** | `jMenuAbrirActionPerformed` | One handler hides the file read, the raw-text render and the full aggregation pass behind a single menu click |
+| 📦 **Simple Data Holder (POJO)** | `Venda.java` | A minimal getter/setter class carrying `loja` and `precoUnitario`, used as the aggregation unit |
+| 🗺️ **Accumulator / Map-Reduce (manual)** | `HashMap<String, Integer> produtosVendidos` in `jMenuAbrirActionPerformed` | Running totals per product key, updated on every row, mirroring a manual reduce step |
+| 🚦 **Guard Clause (partial)** | `if (!primeiraLinha)` skip of the header row | Early skip keeps the parsing body free of header-handling branches |
+| 🏷️ **State Field** | `caminhoArquivo` instance field | Holds the chosen file path between the "Procurar" and "Abrir" menu actions |
+| 🔁 **Linear Scan Lookup** | `for (int i=0; i<comercio.size(); i++)` inside `jMenuAbrirActionPerformed` | Existing-store lookup by iterating the `ArrayList<Venda>` rather than using a map, consistent with the class's small, teaching-oriented scale |
 
 ---
 
-<details>
-<summary><h2>5. UML & Structural Diagrams 🗺️</h2></summary>
-
-### 🧍 Use Case Diagram
-
-> See [Section 2 — Use Case Diagram](#2-use-cases).
-
-### 🧱 Class Diagram
-
-```mermaid
-classDiagram
-    class AplicacaoLoja {
-        +main(String[] args) void
-    }
-    class Painel {
-        -String caminhoArquivo
-        -JTextArea textArea
-        -JTextField textField1
-        -JTextField textField2
-        -JTextField textField3
-        -JTextField textField4
-        -JTextField textField5
-        -JButton jButtonClear
-        +jMenuProcurarActionPerformed(evt) void
-        +jMenuAbrirActionPerformed(evt) void
-        +jMenuSalvarActionPerformed(evt) void
-        +jMenuSairActionPerformed(evt) void
-        +jButtonClearActionPerformed(evt) void
-        +main(String[] args) void
-    }
-    class Venda {
-        -String loja
-        -float precoUnitario
-        +getLoja() String
-        +setLoja(String) void
-        +getPrecoUnitario() float
-        +setPrecoUnitario(float) void
-    }
-    Painel "1" o-- "0..*" Venda : aggregates (comercio)
-    AplicacaoLoja ..> Painel : (alternate entry point, unused)
-    Painel --|> JFrame
-```
-
-### 🔵 Object Diagram
-
-> Example runtime snapshot after processing a sample CSV with 2 stores.
-
-```mermaid
-classDiagram
-    class venda1["venda1 : Venda"] {
-        loja = "Store A"
-        precoUnitario = 1500.00
-    }
-    class venda2["venda2 : Venda"] {
-        loja = "Store B"
-        precoUnitario = 2300.00
-    }
-    class painel["painel : Painel"] {
-        caminhoArquivo = "C:/sales.csv"
-        comercio = [venda1, venda2]
-    }
-    painel --> venda1
-    painel --> venda2
-```
-
-### 🔁 Sequence Diagram — Open & Process CSV
-
-```mermaid
-sequenceDiagram
-    actor User
-    participant Painel as Painel (JFrame)
-    participant FS as File System
-    participant Venda as Venda (model)
-
-    User->>Painel: click "Abrir..." (Open)
-    Painel->>FS: new BufferedReader(caminhoArquivo)
-    FS-->>Painel: file stream
-    loop for each CSV line
-        Painel->>Painel: split line by ";"
-        Painel->>Venda: new Venda(loja, total)
-        Painel->>Painel: update comercio list & produtosVendidos map
-    end
-    Painel->>Painel: update textField1-5 & textArea
-    Painel-->>User: display revenue & best seller
-```
-
-### 💬 Communication Diagram
-
-```mermaid
-flowchart LR
-    U["👤 User"] -- "1: click Abrir" --> P["Painel"]
-    P -- "2: readLine()" --> F[("CSV File")]
-    F -- "3: raw line" --> P
-    P -- "4: create" --> V["Venda"]
-    P -- "5: render results" --> U
-```
-
-### 🔄 Activity Diagram — Parse & Aggregate Algorithm
-
-```mermaid
-flowchart TD
-    Start(["Start"]) --> ReadLine["Read next line"]
-    ReadLine --> IsHeader{"First line?"}
-    IsHeader -- Yes --> SkipHeader["Skip header"] --> ReadLine
-    IsHeader -- No --> Split["Split columns by ';'"]
-    Split --> CreateSale["Create Venda(store, qty x price)"]
-    CreateSale --> StoreExists{"Store already\nin list?"}
-    StoreExists -- Yes --> Accumulate["Add to existing\nstore revenue"]
-    StoreExists -- No --> AddStore["Add new store entry"]
-    Accumulate --> UpdateMap["Update product\nquantity map"]
-    AddStore --> UpdateMap
-    UpdateMap --> CheckBest{"Quantity > current\nbest seller?"}
-    CheckBest -- Yes --> UpdateBest["Update best-selling\nproduct"]
-    CheckBest -- No --> MoreLines{"More lines?"}
-    UpdateBest --> MoreLines
-    MoreLines -- Yes --> ReadLine
-    MoreLines -- No --> Display["Display results in UI"]
-    Display --> End(["End"])
-```
-
-### 🔀 State Machine Diagram — Application State
-
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> FileSelected : Procurar (select file)
-    FileSelected --> ResultsDisplayed : Abrir (open & process)
-    ResultsDisplayed --> Idle : Limpar (clear)
-    Idle --> [*] : Sair (exit)
-    FileSelected --> [*] : Sair (exit)
-    ResultsDisplayed --> [*] : Sair (exit)
-```
-
-### 🧩 Component Diagram
-
-```mermaid
-flowchart TB
-    subgraph UI["UI Layer «component»"]
-        Painel["Painel (JFrame)"]
-    end
-    subgraph Domain["Domain Layer «component»"]
-        Venda["Venda"]
-    end
-    subgraph IO["I/O Layer «component»"]
-        FileIO["java.io\n(BufferedReader / FileReader)"]
-    end
-    Painel --> Venda
-    Painel --> FileIO
-```
-
-### 🖥️ Deployment Diagram
-
-```mermaid
-flowchart TB
-    subgraph Desktop["User Desktop «device»"]
-        subgraph JVM["JVM «execution environment»"]
-            App["AplicacaoLoja.jar «artifact»"]
-        end
-        CSVFile["sales.csv «artifact»"]
-    end
-    App -- reads --> CSVFile
-```
-
-### 📦 Package Diagram
-
-```mermaid
-flowchart TB
-    subgraph pkg["📦 aula02.aplicacaoloja"]
-        Painel
-        Venda
-        AplicacaoLoja
-    end
-```
-
-### 🧬 Composite Structure Diagram — Painel Internals
-
-```mermaid
-flowchart TB
-    subgraph Painel["Painel : JFrame"]
-        Menu["jMenuBar1 : JMenuBar\n(Procurar, Abrir, Salvar, Sair)"]
-        Area["textArea : JTextArea"]
-        Fields["textField1..5 : JTextField"]
-        Btn["jButtonClear : JButton"]
-    end
-```
-
-### 🖼️ Interaction Overview Diagram
-
-```mermaid
-flowchart LR
-    A["Frame: Select File\n(see Sequence Diagram)"] --> B{"File selected?"}
-    B -- No --> A
-    B -- Yes --> C["Frame: Open & Process\n(see Activity Diagram)"]
-    C --> D["Frame: Display Results"]
-    D --> E{"User action"}
-    E -- Clear --> F["Frame: Clear\n(see State Machine)"]
-    E -- Exit --> G(["End"])
-    F --> D
-```
-
-### ⏱️ Timing Diagram — UI Fields over Time
-
-| Time | `textField1`–`4` (Revenue per Store) | `textField5` (Best Seller) | `textArea` (Raw Preview) |
-|:-----|:--------------------------------------|:-----------------------------|:---------------------------|
-| t0 — App start | empty | empty | empty |
-| t1 — File selected (`Procurar`) | empty | empty | empty |
-| t2 — File opened (`Abrir`) | empty | empty | raw CSV content |
-| t3 — During parsing | progressively filled (1 per store) | empty | raw CSV content |
-| t4 — Parsing finished | revenue per store (up to 4) | product / quantity | raw CSV content |
-| t5 — `LIMPAR` clicked | empty | empty | empty |
-
 </details>
+
+## 📁 Project Structure
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+```
+leitor_de_arquivo_csv/
+│
+├── 📄 .gitignore                              # Ignores target/, *.class, secrets, OS/IDE files
+│
+├── 📂 AplicacaoLoja/                          # ★ The actual Maven project (real source root)
+│   ├── 📄 pom.xml                             # Maven descriptor: Java 21, jar packaging, no dependencies
+│   ├── 📄 nbactions.xml                       # NetBeans run/debug/profile actions (main class = Painel)
+│   ├── 📄 aplicacao_loja.txt                  # Earlier draft revision of Painel.java, kept for reference
+│   ├── 📄 atribuicoes_icon.txt                # Flaticon attribution list for every menu/panel icon
+│   ├── 📄 AplicacaoLoja-1.0-SNAPSHOT.jar      # Pre-built jar artifact checked into the repo
+│   │
+│   ├── 📂 research/                           # 📊 Sample data and icon assets used by the UI
+│   │   ├── 📄 Estoque.csv                     # Sample sales CSV (Mês;Ano;Loja;Plataforma;Produto;Quantidade;Preço)
+│   │   ├── 📄 Estoque2.csv                    # Second sample sales CSV
+│   │   ├── 📄 leituraCSV.csv                  # Larger unrelated municipality dataset used for read testing
+│   │   └── 📄 *.png                           # abrir/salvar/sair/procurar/mes/ano/lojas/... menu icons
+│   │
+│   ├── 📂 src/main/java/
+│   │   ├── 📄 totalLoja1.java                 # Empty package-less stub class (unused)
+│   │   └── 📂 aula02/aplicacaoloja/
+│   │       ├── 📄 AplicacaoLoja.java          # Entry-point stub declared in pom.xml, empty main()
+│   │       ├── 📄 Painel.java                 # ★ Main JFrame — GUI, events, CSV parsing, aggregation (449 lines)
+│   │       ├── 📄 Painel.form                 # NetBeans GroupLayout descriptor consumed by initComponents()
+│   │       ├── 📄 Venda.java                  # POJO: loja (String) + precoUnitario (float)
+│   │       └── 📄 library_folder_20326.ico    # Application icon asset
+│   │
+│   └── 📂 target/                             # Maven build output (compiled .class files, archiver metadata)
+│
+├── 📄 README.md                                # 🇺🇸 English (primary)
+├── 📄 README_PT.md                             # 🇧🇷 Português
+└── 📄 README_ES.md                             # 🇪🇸 Español
+```
 
 ---
 
+</details>
+
+## 📦 System Modules
+
 <details>
-<summary><h2>6. Data Model & Data Dictionary 🗄️</h2></summary>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-### 🔗 Entity-Relationship Diagram (ER)
+### 🏛️ Painel — Main Window Controller
 
-> The CSV is a flat file, but conceptually each row represents a relationship between a **Store**, a **Product** and a **Sale**.
+`Painel` (`aula02.aplicacaoloja.Painel`) extends `javax.swing.JFrame` and is the only visual class in the application. It owns the file path state, every event handler, and the CSV parsing/aggregation logic in one 449-line file.
+
+| Responsibility | Implementation |
+|-----------------|----------------|
+| Window setup | `initComponents()` — NetBeans-generated `GroupLayout`, two `JMenuBar`s, one visible (`jMenuBar1`) |
+| File path state | `String caminhoArquivo` — set by the Procurar handler, read by Abrir and Salvar |
+| Entry point | `public static void main(String[] args)` — sets the Nimbus look-and-feel if available, then `new Painel().setVisible(true)` |
+| Menu actions | `jMenuProcurarActionPerformed`, `jMenuAbrirActionPerformed`, `jMenuSalvarActionPerformed`, `jMenuSairActionPerformed` |
+| Reset action | `jButtonClearActionPerformed` — clears the text area and all five result fields |
+| Unused stubs | `textField1ActionPerformed` … `textField5ActionPerformed` — empty listener bodies auto-generated by the form editor |
+
+---
+
+### 📦 Venda — Sale Record Model
+
+`Venda` is a package-private POJO used to accumulate one running total per store while the CSV is being scanned.
+
+| Field | Type | Accessors |
+|-------|------|-----------|
+| `loja` | `String` | `getLoja()` / `setLoja(String)` |
+| `precoUnitario` | `float` | `getPrecoUnitario()` / `setPrecoUnitario(float)` — despite the name ("unit price"), this field is reused to hold the **running revenue total** for the store |
+
+> [!NOTE]
+> The field name `precoUnitario` ("unit price") is misleading: in `Painel.jMenuAbrirActionPerformed` it is assigned `Float.parseFloat(colunas[6]) * Integer.parseInt(colunas[5])`, i.e. price × quantity, so it actually holds accumulated revenue, not a per-unit price.
+
+---
+
+### 🚪 AplicacaoLoja — Entry Point Stub
+
+`AplicacaoLoja` (`aula02.aplicacaoloja.AplicacaoLoja`) is the class declared as `exec.mainClass` in `pom.xml`. Its `main(String[] args)` body is empty — the application is actually launched through `Painel.main()`, as overridden by `nbactions.xml` for IDE run/debug/profile actions.
+
+| Property | Value |
+|----------|-------|
+| Declared main class (pom.xml) | `aula02.aplicacaoloja.AplicacaoLoja` |
+| Actual launched class (nbactions.xml) | `aula02.aplicacaoloja.Painel` |
+| Body | Empty — does nothing if invoked directly |
+
+---
+
+### 🧩 totalLoja1 — Unused Stub
+
+A package-less class at `src/main/java/totalLoja1.java`, generated from a NetBeans class template and never referenced anywhere else in the codebase. It carries only a doc comment and no members.
+
+---
+
+### 🖼️ Research Assets — Icons & Sample Data
+
+The `research/` directory supplies the menu icons (`procurar.png`, `abrir.png`, `salvar.png`, `sair.png`) referenced by absolute Windows paths in `initComponents()` (e.g. `E:\IFPR\POO I\AplicacaoLoja\research\procurar.png`), plus category icons (`mes.png`, `ano.png`, `lojas.png`, `plataforma.png`, `produtos.png`, `quantidade.png`, `preco.png`, `moeda.png`) that are not currently wired into any Swing component, and two sample CSVs (`Estoque.csv`, `Estoque2.csv`) matching the `Mês;Ano;Loja;Plataforma;Produto;Quantidade;Preço Unitário` schema the parser expects.
+
+> [!WARNING]
+> The icon paths hard-coded in `Painel.java` (`E:\IFPR\POO I\AplicacaoLoja\research\*.png`) point to the original author's local machine and will silently fail to load on any other computer, leaving the menu items without icons but otherwise functional.
+
+---
+
+</details>
+
+## 💼 Business Rules
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+### 📄 CSV Format Rules
+
+| # | Rule | Enforcement |
+|---|------|-------------|
+| BR-01 | Columns must be separated by a semicolon (`;`) | `String divisorCSV = ";"` used in `linha.split(divisorCSV)` |
+| BR-02 | The first line of the file is always treated as a header and skipped | `Boolean primeiraLinha` flag, checked before parsing each line |
+| BR-03 | Each data row must have at least 7 columns (index 0-6) | `colunas[2]`, `colunas[4]`, `colunas[5]`, `colunas[6]` are accessed directly, with no length check |
+| BR-04 | Column 2 is the store name, column 4 the product, column 5 the quantity, column 6 the unit price | Fixed column indices in `jMenuAbrirActionPerformed` |
+
+### 🧮 Aggregation Rules
+
+| # | Rule | Enforcement |
+|---|------|-------------|
+| BR-05 | Store revenue = sum of `(unit price × quantity)` across every row for that store | `local.setPrecoUnitario(Float.parseFloat(colunas[6]) * Integer.parseInt(colunas[5]))` then merged into the existing `Venda` when the store repeats |
+| BR-06 | A store is identified by an exact string match on its name | `item.getLoja().equals(local.getLoja())` |
+| BR-07 | The best-selling product is the one with the highest cumulative quantity across all rows | `HashMap<String, Integer> produtosVendidos`, updated with `quantidadeMaisVendida` tracked as the running maximum |
+| BR-08 | Only the first four distinct stores encountered are shown, one per result field | The result-field assignment inside the `comercio` loop only handles indices `0`-`3` |
+
+### 🖱️ UI Behavior Rules
+
+| # | Rule | Enforcement |
+|---|------|-------------|
+| BR-09 | The **CLEAR** button resets the preview and all five result fields | `jButtonClearActionPerformed` calls `setText("")` on `textArea` and `textField1`-`textField5` |
+| BR-10 | The **SALVAR** menu item truncates the currently opened file instead of writing content back to it | `new PrintWriter(caminhoArquivo)` opens (and thereby empties) the file, then immediately closes it without writing |
+| BR-11 | The **SAIR** menu item terminates the JVM immediately | `System.exit(0)` |
+| BR-12 | Opening a file with no prior selection, or an unreadable path, shows an error dialog rather than crashing the UI thread | `try/catch (IOException e)` around the read, reported via `JOptionPane.showMessageDialog` |
+
+---
+
+</details>
+
+## ✅ Functional Requirements
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+| ID | Requirement | Priority | Status |
+|----|-------------|----------|--------|
+| **RF-01** | The system shall let the user browse and select a `.csv` file via a file chooser dialog | 🔴 High | ✅ Implemented |
+| **RF-02** | The system shall read the selected file's raw content into a scrollable text area | 🔴 High | ✅ Implemented |
+| **RF-03** | The system shall parse the file as `;`-delimited, skipping the first (header) line | 🔴 High | ✅ Implemented |
+| **RF-04** | The system shall compute total revenue per store as unit price × quantity, summed across rows | 🔴 High | ✅ Implemented |
+| **RF-05** | The system shall display up to four distinct store totals in separate fields | 🟡 Medium | ✅ Implemented |
+| **RF-06** | The system shall determine the product with the highest cumulative quantity sold | 🔴 High | ✅ Implemented |
+| **RF-07** | The system shall display the best-selling product's name and total quantity | 🟡 Medium | ✅ Implemented |
+| **RF-08** | The system shall provide a CLEAR action that resets the preview and all result fields | 🟢 Low | ✅ Implemented |
+| **RF-09** | The system shall provide an EXIT action that terminates the application | 🟢 Low | ✅ Implemented |
+| **RF-10** | The system shall provide a SAVE menu item under the ARQUIVO menu | 🟢 Low | ✅ Implemented |
+| **RF-11** | The SAVE action shall persist edited results back to the source CSV | 🟡 Medium | ⬜ Planned |
+| **RF-12** | The system shall report parsing/read errors to the user via a dialog instead of failing silently | 🟡 Medium | ✅ Implemented |
+| **RF-13** | The system shall bind keyboard accelerators (`Ctrl+P`, `Ctrl+A`, `Ctrl+S`, `Esc`) to the four menu actions | 🟢 Low | ✅ Implemented |
+| **RF-14** | The system shall apply the Nimbus look-and-feel when available at startup | 🟢 Low | ✅ Implemented |
+| **RF-15** | The system shall reject or safely handle CSV rows with fewer than 7 columns | 🟡 Medium | ⬜ Planned |
+| **RF-16** | The system shall support more than four distinct stores in the result display | 🟢 Low | ⬜ Planned |
+| **RF-17** | The system shall avoid reading the selected file twice per "Open" action | 🟡 Medium | ⬜ Planned |
+| **RF-18** | The system shall present results in a sortable table rather than fixed text fields | 🟢 Low | ⬜ Planned |
+
+---
+
+</details>
+
+## ⚡ Non-Functional Requirements
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+| ID | Category | Requirement | Target |
+|----|----------|-------------|--------|
+| **RNF-01** | ⚡ Performance | CSV parsing runs in a single in-memory pass per read | `O(n)` over the row count, `O(n·k)` for the linear store lookup where `k` ≤ 4 |
+| **RNF-02** | 📦 Footprint | No external runtime dependency beyond the JDK | `pom.xml` declares zero `<dependencies>` |
+| **RNF-03** | 🧠 Memory | Entire file is buffered as text plus one `Venda` per distinct store | Bounded by input file size; no streaming for very large files |
+| **RNF-04** | 📱 Portability | Runs on any OS with a compatible JDK and Swing support | Requires **JDK 21** (`maven.compiler.source`/`target`) |
+| **RNF-05** | 🎨 Usability | Menu actions are reachable via keyboard accelerators | `Ctrl+P`, `Ctrl+A`, `Ctrl+S`, `Esc` |
+| **RNF-06** | 🔧 Maintainability | Codebase organized as a Maven project under a single package | `aula02.aplicacaoloja` |
+| **RNF-07** | 🔧 Build Reproducibility | Build described declaratively with a fixed Maven model version | `pom.xml` `modelVersion 4.0.0` |
+| **RNF-08** | 🔐 Reliability | I/O errors are caught and surfaced, not swallowed silently | `try/catch (IOException e)` around every file operation |
+| **RNF-09** | 🌍 Encoding | Source files declare UTF-8 as the build encoding | `project.build.sourceEncoding = UTF-8` in `pom.xml` |
+| **RNF-10** | ♿ Accessibility | UI text is legible at a large default font size | `label2`-`label5` use 36pt, `jLabel1`/`jLabel2` use 24pt bold |
+| **RNF-11** | 🧪 Testability | Automated regression coverage for the parsing/aggregation logic | Not currently present (see [Automated Tests](#-automated-tests)) |
+| **RNF-12** | 📐 Consistency | Icon assets ship alongside the code with documented attribution | `atribuicoes_icon.txt` lists the Flaticon source for every icon |
+
+---
+
+</details>
+
+## 🗄️ Data Model
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+This project has **no database and no persistence layer**. The "data model" is the shape of the CSV file it reads and the in-memory Java objects built while parsing it.
+
+### Entity-Relationship Diagram
 
 ```mermaid
 erDiagram
-    STORE ||--o{ SALE : records
-    PRODUCT ||--o{ SALE : "sold in"
+    CSV_FILE ||--o{ CSV_ROW : "contains"
+    CSV_ROW ||--|| VENDA : "produces (per store, accumulated)"
+    CSV_ROW }o--|| PRODUCT_TOTAL : "contributes quantity to"
+    PAINEL_STATE ||--o{ VENDA : "holds up to 4"
+    PAINEL_STATE ||--o| PRODUCT_TOTAL : "tracks best of"
 
-    STORE {
-        string name PK
+    CSV_FILE {
+        string path "caminhoArquivo, chosen via JFileChooser"
+        string delimiter "always semicolon"
+        string encoding "expected UTF-8"
     }
-    PRODUCT {
-        string name PK
+
+    CSV_ROW {
+        string mes "column 0, Mês"
+        string ano "column 1, Ano"
+        string loja "column 2, Loja"
+        string plataforma "column 3, Plataforma"
+        string produto "column 4, Produto"
+        int quantidade "column 5, Quantidade"
+        float precoUnitario "column 6, Preço Unitário"
     }
-    SALE {
-        string store_name FK
-        string product_name FK
-        int quantity
-        float unit_price
+
+    VENDA {
+        string loja "store name, exact-match key"
+        float precoUnitario "running revenue total (price times quantity)"
+    }
+
+    PRODUCT_TOTAL {
+        string produtoMaisVendido "name of the current top product"
+        int quantidadeMaisVendida "cumulative quantity sold"
+    }
+
+    PAINEL_STATE {
+        string caminhoArquivo "currently selected file path"
+        ArrayList_Venda comercio "accumulated per-store totals"
+        HashMap_String_Integer produtosVendidos "quantity sold per product"
     }
 ```
 
-### 🧠 Conceptual Data Model
+### CSV Column Specification
 
-- **Store** — a sales location, identified by its name.
-- **Product** — an item that can be sold, identified by its name.
-- **Sale** — a transaction linking one Store and one Product, with a quantity and a unit price.
+| # | Column (PT header) | Java type used | Consumed by |
+|---|---------------------|-----------------|-------------|
+| 0 | `Mês` | not parsed | Displayed only in the raw preview |
+| 1 | `Ano` | not parsed | Displayed only in the raw preview |
+| 2 | `Loja` | `String` | `local.setLoja(colunas[2])` — store grouping key |
+| 3 | `Plataforma` | not parsed | Displayed only in the raw preview |
+| 4 | `Produto` | `String` | Key of `produtosVendidos` map |
+| 5 | `Quantidade` | `int` (`Integer.parseInt`) | Multiplied into revenue; accumulated per product |
+| 6 | `Preço Unitário` | `float` (`Float.parseFloat`) | Multiplied by quantity to get row revenue |
 
-### 🧩 Logical Data Model
+### In-Memory State Shape
 
-| Entity | Attribute | Type | Key |
-|:-------|:----------|:-----|:----|
-| `STORE` | `name` | String | PK |
-| `PRODUCT` | `name` | String | PK |
-| `SALE` | `store_name` | String | FK → STORE |
-| `SALE` | `product_name` | String | FK → PRODUCT |
-| `SALE` | `quantity` | Integer | — |
-| `SALE` | `unit_price` | Decimal | — |
-
-### 💽 Physical Data Model (as implemented)
-
-- **Storage**: single flat `.csv` file, `;`-delimited, no schema enforcement.
-- **In-memory representation**:
-  - `Venda` class → `loja: String`, `precoUnitario: float` (pre-multiplied `quantity × unit price`).
-  - `ArrayList<Venda> comercio` → one aggregated entry per distinct store.
-  - `HashMap<String, Integer> produtosVendidos` → product name → cumulative quantity sold.
-
-### 📖 Data Dictionary (CSV columns, as read by `Painel.jMenuAbrirActionPerformed`)
-
-| Index | Column | Type | Description | Used? |
-|:-----:|:-------|:-----|:-------------|:------|
-| 0 | *(not used)* | String | Reserved / row identifier in source file | ❌ |
-| 1 | *(not used)* | String | Reserved / date field in source file | ❌ |
-| 2 | `loja` | String | Store name | ✅ `Venda.loja` |
-| 3 | *(not used)* | String | Reserved / category field in source file | ❌ |
-| 4 | `produto` | String | Product name | ✅ best-seller map key |
-| 5 | `quantidade` | Integer | Quantity sold in this row | ✅ `Integer.parseInt(colunas[5])` |
-| 6 | `preco_unitario` | Float | Unit price (decimal point `.`) | ✅ `Float.parseFloat(colunas[6])` |
-
-> ⚠️ Columns 0, 1 and 3 must still be present in the file (so column indices line up), even though the current logic does not use their values.
-
-</details>
+| Structure | Type | Lifetime | Purpose |
+|-----------|------|----------|---------|
+| `comercio` | `ArrayList<Venda>` | Local to `jMenuAbrirActionPerformed`, rebuilt on every "Abrir" click | Holds one `Venda` per distinct store seen so far |
+| `produtosVendidos` | `HashMap<String, Integer>` | Local to `jMenuAbrirActionPerformed`, rebuilt on every "Abrir" click | Running quantity total per product name |
+| `caminhoArquivo` | `String` (instance field) | Lives for the lifetime of the `Painel` window | The single source-of-truth file path shared by Procurar/Abrir/Salvar |
 
 ---
 
-<details>
-<summary><h2>7. Data Flow Diagram (DFD) 🔄</h2></summary>
-
-### 🌐 Level 0 — Context Diagram
-
-```mermaid
-flowchart LR
-    User(["👤 User"]) -->|CSV file path| P0["0.0\nCSV Sales Analyzer"]
-    P0 -->|Revenue per store,\nBest-selling product| User
-    P0 <-->|read rows| D1[("D1: CSV File")]
-```
-
-### 🔬 Level 1 — Detailed DFD
-
-```mermaid
-flowchart TB
-    User(["👤 User"]) -->|select file| P1["1.0\nSelect File"]
-    P1 -->|file path| P2["2.0\nRead & Parse CSV"]
-    D1[("D1: CSV File")] --> P2
-    P2 -->|sale records| P3["3.0\nCalculate Revenue\nper Store"]
-    P2 -->|sale records| P4["4.0\nIdentify Best-Selling\nProduct"]
-    P3 -->|revenue map| P5["5.0\nDisplay Results"]
-    P4 -->|best seller| P5
-    P5 --> User
-```
-
-### 🧵 Data Lineage Diagram
-
-```mermaid
-flowchart LR
-    A["Raw CSV rows\n(text lines)"] --> B["Split by ';'\n(String[] colunas)"]
-    B --> C["Venda objects\n(loja, precoUnitario)"]
-    C --> D["Aggregated revenue\nper store (comercio list)"]
-    B --> E["produtosVendidos\n(HashMap)"]
-    E --> F["Best-selling product\n(produtoMaisVendido)"]
-    D --> G["textField1-4"]
-    F --> H["textField5"]
-    A --> I["textArea\n(raw preview)"]
-```
-
 </details>
 
----
+## 🔄 System Flows
 
 <details>
-<summary><h2>8. Architecture Diagram & Flowchart 🏗️</h2></summary>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-### 🏛️ Architecture Overview
+### File Selection and Parsing Flow
 
 ```mermaid
-flowchart TB
-    subgraph Presentation["🖥️ Presentation Layer"]
-        UI["Painel\n(Java Swing GUI)"]
-    end
-    subgraph Application["⚙️ Application / Logic Layer"]
-        Logic["Event Handlers\n(parsing & aggregation algorithms)"]
-    end
-    subgraph DataLayer["🗄️ Data Layer"]
-        Model["Venda\n(domain model)"]
-        FileSystem[("CSV File\n(java.io)")]
-    end
+sequenceDiagram
+    autonumber
+    participant U as 👤 User
+    participant P as 🏛️ Painel
+    participant FC as 📂 JFileChooser
+    participant FS as 💾 File System
+    participant TA as 📖 TextArea
 
-    UI --> Logic
-    Logic --> Model
-    Logic --> FileSystem
+    U->>P: Click "PROCURAR ..." (Ctrl+P)
+    P->>FC: new JFileChooser().showOpenDialog(this)
+    FC-->>U: Native file dialog
+    U->>FC: Select a .csv file
+    FC-->>P: getSelectedFile()
+    P->>P: caminhoArquivo = file.getPath()
+    U->>P: Click "ABRIR ..." (Ctrl+A)
+    P->>FS: new BufferedReader(new FileReader(caminhoArquivo))
+    FS-->>P: Line-by-line content
+    P->>TA: textArea.setText(rawContent)
+    P->>FS: Re-open the same file for a second read pass
+    FS-->>P: Line-by-line content (again)
+    P->>P: Parse rows, accumulate Venda list and product map
+    P-->>U: Result fields populated
 ```
 
-### 🧭 Application Flowchart
+### Revenue Aggregation Flow
 
 ```mermaid
 flowchart TD
-    Start(["Start"]) --> Launch["Launch Application"]
-    Launch --> SelectFile["File → Browse...\nSelect .csv"]
-    SelectFile --> OpenFile["File → Open...\nProcess CSV"]
-    OpenFile --> ViewResults["View revenue per store\n& best-selling product"]
-    ViewResults --> Decision{"Next action?"}
-    Decision -- Clear --> Clear["Click LIMPAR"]
-    Clear --> SelectFile
-    Decision -- Exit --> End(["End"])
+    START([Line read from CSV]) --> HDR{First line?}
+    HDR -- Yes --> SKIP[Skip header, set primeiraLinha=false]
+    SKIP --> START
+    HDR -- No --> SPLIT["colunas = linha.split(';')"]
+    SPLIT --> BUILD["local = new Venda()\nsetLoja(colunas[2])\nsetPrecoUnitario(preco * qtd)"]
+    BUILD --> SCAN{Loop existing\ncomercio list}
+    SCAN -- match found --> MERGE["item.setPrecoUnitario(\nlocal + item)"]
+    SCAN -- no match --> ADD["comercio.add(local)"]
+    MERGE --> PROD
+    ADD --> PROD["Update produtosVendidos map\nfor colunas[4]"]
+    PROD --> CMP{quantity > quantidadeMaisVendida?}
+    CMP -- Yes --> TOP["produtoMaisVendido = colunas[4]"]
+    CMP -- No --> NEXT
+    TOP --> NEXT([Next line])
+    NEXT --> START
+
+    style START fill:#1565C0,color:#fff
+    style TOP fill:#2E7D32,color:#fff
+    style MERGE fill:#BF360C,color:#fff
 ```
+
+### Save Action Flow
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as 👤 User
+    participant P as 🏛️ Painel
+    participant PW as ✍️ PrintWriter
+    participant FS as 💾 File System
+
+    U->>P: Click "SALVAR ..." (Ctrl+S)
+    P->>PW: new PrintWriter(caminhoArquivo)
+    Note over PW,FS: Opening a PrintWriter on an existing path\ntruncates the file to zero bytes
+    PW->>FS: File truncated, nothing written
+    P->>PW: arquivo.close()
+    Note over U: No confirmation dialog, no export produced
+```
+
+### Window Lifecycle State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Launching: main(args)
+    Launching --> Idle: Nimbus L&F applied, Painel visible
+    Idle --> FileChosen: PROCURAR selected + file picked
+    FileChosen --> Populated: ABRIR parses and fills fields
+    Populated --> Idle: LIMPAR clears all fields
+    Populated --> Populated: ABRIR re-run on a new file
+    Populated --> Truncated: SALVAR opens/closes PrintWriter
+    Idle --> Truncated: SALVAR opens/closes PrintWriter
+    Idle --> [*]: SAIR (System.exit)
+    Populated --> [*]: SAIR (System.exit)
+    Truncated --> [*]: SAIR (System.exit)
+```
+
+### Error Handling Flow
+
+```mermaid
+flowchart LR
+    OP([File operation attempted]) --> TRY{try block}
+    TRY -- success --> DONE([Operation completes])
+    TRY -- IOException --> WHICH{Which handler?}
+    WHICH -- "Abrir" --> DIALOG["JOptionPane.showMessageDialog\nErro ao ler o arquivo"]
+    WHICH -- other --> CONSOLE["System.out.println\nErro: message"]
+    DIALOG --> DONE
+    CONSOLE --> DONE
+
+    style OP fill:#1565C0,color:#fff
+    style DONE fill:#2E7D32,color:#fff
+    style DIALOG fill:#BF360C,color:#fff
+```
+
+---
 
 </details>
 
----
+## 🔐 Security
 
 <details>
-<summary><h2>9. Persona & User Journey Map 👤</h2></summary>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-### 🧑 Persona
+### Implemented Controls
 
-| Field | Description |
-|:------|:-------------|
-| **Name** | Marcos Oliveira |
-| **Role** | Sales Supervisor at a small retail chain |
-| **Age** | 38 |
-| **Tech comfort** | Medium — comfortable with desktop apps and spreadsheets |
-| **Goal** | Quickly compare weekly revenue across store branches and spot the best-selling product |
-| **Frustration** | Manually building pivot tables in spreadsheets every week |
-| **Quote** | *"I just need the numbers, fast — without opening Excel."* |
+| Control | Implementation | Effect |
+|---------|-----------------|--------|
+| 🗂️ **User-driven file selection** | `JFileChooser` restricted to `FILES_ONLY` | The user, not an external input, chooses which file is read |
+| 🔐 **No network access** | No socket, HTTP client, or network permission anywhere in the codebase | Data never leaves the local machine through this application |
+| 📵 **No third-party dependency** | `pom.xml` declares zero `<dependencies>` | Zero third-party supply-chain surface |
+| 🧾 **Error containment** | `try/catch (IOException e)` around every file read | A malformed or missing file cannot crash the Swing event thread |
+| 🔒 **No dynamic code execution** | No reflection-based class loading, no scripting engine | The parser only ever calls `String.split`, `Integer.parseInt`, `Float.parseFloat` |
 
-### 🗺️ User Journey Map
+### Known Security Limitations
 
-| Stage | Action | Touchpoint | Thoughts | Emotion | Opportunity |
-|:------|:-------|:-----------|:----------|:--------|:--------------|
-| 1. Need arises | Wants a weekly sales comparison | Export from POS system | "I need this fast" | 😐 Neutral | — |
-| 2. Launch app | Opens CSV Sales Analyzer | Desktop shortcut | "Simple window, looks easy" | 🙂 Curious | — |
-| 3. Select file | `File → Browse...` | `JFileChooser` | "Easy to find my file" | 🙂 Confident | — |
-| 4. Process | `File → Open...` | App window | "Instant totals, nice!" | 😀 Satisfied | — |
-| 5. Analyze | Reads revenue per store & best seller | Result fields | "Matches what I expected" | 😀 Satisfied | Add export to PDF/Excel |
-| 6. Reset / Close | Clicks `LIMPAR` or exits | Button / menu | "Ready for next file" | 🙂 Confident | — |
+> [!WARNING]
+> This is an educational prototype. The following gaps should be closed before any production or multi-user use.
+
+| Limitation | Risk | Mitigation path |
+|------------|------|-----------------|
+| 🗑️ **SALVAR truncates the file without confirmation** | A misclick on the SALVAR menu item silently wipes the currently open CSV to zero bytes | Require an explicit "Save As" dialog and never open a `PrintWriter` on the original path without writing content back |
+| 🧨 **No column-count validation** | A malformed row with fewer than 7 columns throws an uncaught `ArrayIndexOutOfBoundsException`, propagating out of the parsing loop | Validate `colunas.length >= 7` before indexing and skip/report bad rows |
+| 🔢 **`NumberFormatException` not caught during parsing** | A non-numeric `Quantidade` or `Preço Unitário` cell crashes the parse instead of being reported to the user | Wrap `Integer.parseInt` / `Float.parseFloat` in their own try/catch with a user-facing message |
+| 🖥️ **Hard-coded absolute icon paths** | Paths like `E:\IFPR\POO I\AplicacaoLoja\research\procurar.png` leak the original author's local directory layout and fail on any other machine | Load icons as classpath resources (e.g. via `getClass().getResource(...)`) instead of absolute filesystem paths |
+| 📄 **No path or file-type validation** | `JFileChooser` accepts any file, not just `.csv`; a huge or binary file would be read fully into memory | Add a `FileNameExtensionFilter("CSV", "csv")` and a size guard before reading |
+| 🧵 **File I/O runs on the Swing Event Dispatch Thread** | A very large CSV freezes the UI while it is read and parsed | Move file I/O to a background thread (e.g. `SwingWorker`) |
+| 📦 **Pre-built jar committed to the repository** | `AplicacaoLoja-1.0-SNAPSHOT.jar` is versioned alongside source, which can drift out of sync with the code and bloats the repository | Build artifacts on demand via `mvn package`; exclude `*.jar` from version control |
+
+---
 
 </details>
-
----
-
-<details>
-<summary><h2>10. Wireframes & Mockups 🎨</h2></summary>
-
-### 📐 Low-Fidelity Wireframe
-
-```text
-+---------------------------------------------------------------+
-| ARQUIVO (File)                                                 |
-+---------------------------------------------------------------+
-|  TOTAL DE VENDAS POR LOJA                                      |
-|                                                                 |
-|  LOJA: [ Store A / 1500.00 ]      +-----------------------+    |
-|  LOJA: [ Store B / 2300.00 ]      |                       |    |
-|  LOJA: [ Store C / 980.00  ]      |   Raw CSV preview     |    |
-|  LOJA: [ Store D / 1120.00 ]      |   (textArea)          |    |
-|                                    +-----------------------+    |
-+---------------------------------------------------------------+
-|  QUANTIDADES                                                   |
-|  [ Best seller name / qty units ]            ( LIMPAR )       |
-+---------------------------------------------------------------+
-```
-
-### 🎯 Mockup Notes
-
-- **Background**: black (`Color(0, 0, 0)`), high-contrast bold labels — matches `Painel.initComponents()`.
-- **Typography**: section labels (`LOJA:`, `TOTAL DE VENDAS POR LOJA`, `QUANTIDADES`) in bold, large font (`Dialog`/`Segoe UI`, 24–36pt).
-- **Primary action**: `LIMPAR (CLEAR)` button, font size 24, positioned bottom-right next to the best-seller field.
-- **Menu bar**: single top-level menu `ARQUIVO` with items *Procurar*, *Abrir*, *Salvar*, *Sair* (shortcuts `Ctrl+P`, `Ctrl+A`, `Ctrl+S`, `Esc`).
-
-</details>
-
----
-
-## 📋 Expected CSV Format
-
-> For correct processing, the CSV file must follow the structure below (see [Data Dictionary](#6-data-model--data-dictionary)).
-
-| Property | Expected Value |
-|:---------|:----------------|
-| **Delimiter** | Semicolon (`;`) |
-| **Columns** | 7 columns (indices 0–6) — only indices `2`, `4`, `5`, `6` are used |
-| **Header** | The **first line** is always skipped |
-| **Encoding** | UTF-8 recommended |
-
-### 📄 Example CSV File
-
-```csv
-id;data;loja;categoria;produto;quantidade;preco_unitario
-1;2024-01-01;Store A;General;Product X;10;25.00
-2;2024-01-01;Store A;General;Product Y;5;40.00
-3;2024-01-02;Store B;General;Product X;20;25.00
-4;2024-01-02;Store B;General;Product Z;8;15.00
-5;2024-01-03;Store C;General;Product Y;12;40.00
-6;2024-01-03;Store D;General;Product Z;3;15.00
-```
-
----
-
-## 📂 Project Structure
-
-```plaintext
-AplicacaoLoja/
-│
-├── 📄 pom.xml                                  # ⚙️  Maven configuration & dependencies
-│
-└── 📁 src/
-    └── 📁 main/
-        └── 📁 java/
-            └── 📁 aula02/
-                └── 📁 aplicacaoloja/
-                    ├── 📄 AplicacaoLoja.java   # 🚀 Alternate entry point (placeholder)
-                    ├── 📄 Painel.java          # 🖥️  Main GUI (JFrame) ← CORE
-                    └── 📄 Venda.java           # 🏛️  Domain model — Sale (store + price)
-```
-
----
 
 ## 🚀 Installation & Execution
 
-### 📋 Prerequisites
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
 
-| Requirement | Detail |
-|:------------|:--------|
-| **JDK** | Version **21 or higher**, installed and configured in `PATH`. |
-| **Apache Maven** | Installed and configured in `PATH`. |
-| **Git** | To clone the repository. |
-
----
-
-### 💻 Option 1 — Command Line
-
-**1. Clone the repository and enter the project folder:**
+### Prerequisites
 
 ```bash
-git clone https://github.com/VictorHJesusSantiago/AplicacaoLoja.git
+# Java Development Kit 21 or newer (matches pom.xml compiler settings)
+java -version         # expect 21+
+
+# Apache Maven 3.8+ (any recent version works; no plugin pinning beyond exec-maven-plugin 3.0.0)
+mvn -version
+```
+
+### Build
+
+```bash
+# From the AplicacaoLoja/ directory (the real Maven project root)
 cd AplicacaoLoja
-```
 
-**2. Build the project with Maven:**
-
-```bash
+# Compile the sources
 mvn compile
+
+# Package into a runnable jar (no dependencies to shade — plain jar)
+mvn package
+# Output: target/AplicacaoLoja-1.0-SNAPSHOT.jar
+
+# Remove all build output
+mvn clean
 ```
 
-**3. Run the main class:**
+### Execution
 
 ```bash
-# Windows / Linux / macOS
-java -cp "target/classes" aula02.aplicacaoloja.Painel
+# Recommended: run the actual GUI class directly (matches nbactions.xml)
+mvn compile exec:java -Dexec.mainClass=aula02.aplicacaoloja.Painel
+
+# Alternative: run the class declared in pom.xml (currently an empty stub)
+mvn compile exec:java -Dexec.mainClass=aula02.aplicacaoloja.AplicacaoLoja
+
+# Or launch the packaged jar's Painel class from the classpath
+java -cp target/classes aula02.aplicacaoloja.Painel
 ```
 
+**In-app usage**
+
+1. Launch the application — the `Painel` window opens with an empty preview area.
+2. Menu **ARQUIVO → PROCURAR ...** (`Ctrl+P`) → pick a `.csv` file, e.g. `research/Estoque.csv`.
+3. Menu **ARQUIVO → ABRIR ...** (`Ctrl+A`) → the raw file content fills the text area and the result fields populate with store totals and the top-selling product.
+4. Press **LIMPAR (CLEAR)** to reset the preview and all result fields.
+5. Menu **ARQUIVO → SAIR ...** (`Esc`) to close the application.
+
+> [!WARNING]
+> Avoid the **SALVAR** menu item on a file you want to keep — see [Known Security Limitations](#-security).
+
+### Maven Targets
+
+| Target | Purpose |
+|--------|---------|
+| `mvn compile` | Compile all Java sources under `src/main/java` |
+| `mvn package` | Produce `target/AplicacaoLoja-1.0-SNAPSHOT.jar` |
+| `mvn clean` | Delete the `target/` directory |
+| `mvn exec:java -Dexec.mainClass=aula02.aplicacaoloja.Painel` | Launch the actual GUI (recommended) |
+| `mvn exec:java -Dexec.mainClass=aula02.aplicacaoloja.AplicacaoLoja` | Launch the empty entry-point stub declared in `pom.xml` |
+
+### Build Configuration
+
+| Setting | Value | Declared in |
+|---------|-------|-------------|
+| `groupId` | `Aula02` | `pom.xml` |
+| `artifactId` | `AplicacaoLoja` | `pom.xml` |
+| `version` | `1.0-SNAPSHOT` | `pom.xml` |
+| `packaging` | `jar` | `pom.xml` |
+| `project.build.sourceEncoding` | `UTF-8` | `pom.xml` |
+| `maven.compiler.source` / `target` | `21` | `pom.xml` |
+| `exec.mainClass` (pom default) | `aula02.aplicacaoloja.AplicacaoLoja` | `pom.xml` |
+| `exec.mainClass` (IDE override) | `aula02.aplicacaoloja.Painel` | `nbactions.xml` |
+
 ---
 
-### 🖥️ Option 2 — IDE (Recommended)
+</details>
+
+## 🧪 Automated Tests
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+### Test Architecture
+
+```mermaid
+flowchart TB
+    subgraph CURRENT["📭 Current State — no src/test directory"]
+        NONE["No JUnit, no TestNG,\nno test source set in pom.xml"]
+    end
+    subgraph PROPOSED["🎯 Proposed — src/test/java/aula02/aplicacaoloja"]
+        UT1["VendaTest.java\nGetter/setter round-trip"]
+        UT2["PainelParsingTest.java\nExtract parsing loop into a\ntestable method, verify\nrevenue and best-product output"]
+        UT3["CsvFixtures\nresearch/Estoque.csv,\nEstoque2.csv as fixtures"]
+    end
+
+    NONE -.->|"gap to close"| PROPOSED
+
+    style CURRENT fill:#3a1a1a,color:#fff
+    style PROPOSED fill:#1a3a1a,color:#fff
+```
+
+| Source set | Status | Notes |
+|------------|--------|-------|
+| `src/test/java` | ❌ Does not exist | No `<dependencies>` for JUnit/TestNG in `pom.xml` either |
+| Instrumented / UI tests | ❌ None | No Espresso/AssertJ-Swing/FEST equivalent configured |
+
+### Running the Tests
+
+```bash
+# There is currently no test source set to run.
+# Once tests are added under src/test/java, they would run with:
+mvn test
+```
+
+### Manual Acceptance Checklist
+
+Until automated tests exist, the following manual checklist is the de facto regression suite:
+
+| # | Scenario | Expected result |
+|---|----------|-----------------|
+| 1 | Launch the app | `Painel` window opens, all fields empty |
+| 2 | PROCURAR → select `research/Estoque.csv` | `caminhoArquivo` set, no visible change yet |
+| 3 | ABRIR after selecting a valid CSV | Raw text fills the text area, `textField1`-`textField4` show up to four store totals, `textField5` shows the best product |
+| 4 | ABRIR without ever using PROCURAR | `caminhoArquivo` is `null`, an error dialog is shown (`FileReader(null)` throws) |
+| 5 | ABRIR a CSV with more than 4 distinct stores | Only the last four processed indices (0-3) end up reflected in the four fields, per BR-08 |
+| 6 | LIMPAR after ABRIR | Text area and all five fields reset to empty |
+| 7 | SALVAR on the currently open file | The file is silently truncated to 0 bytes (see Security section) |
+| 8 | SAIR / `Esc` | Application window closes and the JVM exits |
+| 9 | Open a CSV row with a non-numeric quantity or price | Application throws an uncaught `NumberFormatException` in the console, aggregation halts for the file |
+| 10 | Open a CSV row with fewer than 7 columns | Application throws an uncaught `ArrayIndexOutOfBoundsException` |
+
+---
+
+</details>
+
+## 📊 Metrics & Monitoring
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+### Codebase Metrics
+
+| Metric | Value |
+|--------|-------|
+| Java source files | 4 (`Painel.java`, `Venda.java`, `AplicacaoLoja.java`, `totalLoja1.java`) |
+| Lines of Java (`Painel.java`) | 449 |
+| Lines of Java (`Venda.java`) | 27 |
+| Packages | 1 (`aula02.aplicacaoloja`) + 1 package-less class (`totalLoja1`) |
+| GUI windows (`JFrame`) | 1 (`Painel`) |
+| Menu actions wired to logic | 4 (`Procurar`, `Abrir`, `Salvar`, `Sair`) + 1 button (`Limpar`) |
+| External runtime dependencies | 0 |
+| Sample CSV fixtures | 2 dedicated (`Estoque.csv`, `Estoque2.csv`) + 1 unrelated large dataset (`leituraCSV.csv`) |
+| Automated tests | 0 |
+
+### Runtime Signals
+
+| Signal | Source | Where to observe |
+|--------|--------|------------------|
+| File read errors | `catch (IOException e)` in `jMenuAbrirActionPerformed` | `JOptionPane` dialog titled "Erro" |
+| Parsing/aggregation errors | Same `catch` block, second try around `BufferedReader br` | `System.out.println("Erro: " + e.getMessage())` |
+| Save errors | `catch (IOException e)` in `jMenuSalvarActionPerformed` | `System.out.println("Ocorreu um erro: " + e.getMessage())` |
+| Application exit | `System.exit(0)` in `jMenuSairActionPerformed` | Process exit code `0` |
+
+### Useful Diagnostic Commands
+
+```bash
+# Confirm the JDK version matches pom.xml's compiler target
+java -version
+
+# List declared dependencies (expect an empty list)
+mvn dependency:tree
+
+# Compile with verbose output to catch encoding/warning issues
+mvn -X compile
+
+# Watch console output while running the GUI (catches println-based error logs)
+mvn exec:java -Dexec.mainClass=aula02.aplicacaoloja.Painel
+```
+
+### Standardized Return / Exit Codes
+
+| Code | Origin | Meaning |
+|------|--------|---------|
+| `0` | `System.exit(0)` in `jMenuSairActionPerformed` | Normal application exit via the SAIR menu item |
+| non-zero | JVM default | Uncaught exception (e.g. `ArrayIndexOutOfBoundsException`, `NumberFormatException`) propagating out of an event handler |
+
+---
+
+</details>
+
+## ⚠️ Known Limitations
+
+<details>
+<summary>▶️ <strong>Click to expand / collapse this section</strong></summary>
+
+> [!IMPORTANT]
+> This project was built as an Object-Oriented Programming coursework exercise. It intentionally favors demonstrating file I/O and Swing event handling over production hardening.
+
+| Category | Issue | Status |
+|----------|-------|--------|
+| 🗑️ **Data loss** | The SALVAR menu item truncates the open file to zero bytes instead of saving anything | ⚠️ Open |
+| 📖 **Double file read** | `jMenuAbrirActionPerformed` opens and reads `caminhoArquivo` twice per click — once for the raw preview, once for parsing | ⚠️ Open |
+| 🧨 **No column-count guard** | Rows with fewer than 7 columns throw `ArrayIndexOutOfBoundsException` | ⚠️ Open |
+| 🔢 **No numeric validation** | Non-numeric quantity/price cells throw `NumberFormatException` uncaught | ⚠️ Open |
+| 🔒 **Store cap of four** | Only the first four distinct stores are ever shown; a fifth store is silently dropped from the display | ⚠️ Open |
+| 🖥️ **Hard-coded absolute icon paths** | Icons reference `E:\IFPR\POO I\...`, breaking on any machine but the original author's | ⚠️ Open |
+| 🧵 **Blocking I/O on the UI thread** | Large files freeze the Swing event dispatch thread while reading | ⚠️ Open |
+| 🧪 **No automated tests** | No `src/test` directory or test dependency exists | ⚠️ Open |
+| 🚪 **Empty declared entry point** | `pom.xml`'s `exec.mainClass` (`AplicacaoLoja`) does nothing; the real app is `Painel` | ⚠️ Open |
+| 🧩 **Unused stub class** | `totalLoja1.java` has no members and is referenced nowhere | ➕ Intentional (leftover scaffold, harmless) |
+| 📦 **Pre-built jar versioned in git** | `AplicacaoLoja-1.0-SNAPSHOT.jar` can drift from source | ⚠️ Open |
+| 🌍 **UI strings hard-coded in Portuguese** | Labels, toasts and dialogs are Portuguese literals inside `Painel.java` | ➕ Intentional (matches the assignment's language) |
+
+> [!TIP]
+> The single highest-value fix is correcting the **SALVAR** action: today it destroys the user's data on every click. Replacing `new PrintWriter(caminhoArquivo)` with an explicit "Save As" flow that actually writes content would remove the most dangerous behavior in the application.
+
+</details>
+
+---
+
+<div align="center">
+
+---
+
+### 📊 AplicacaoLoja — CSV Sales Reader
+
+*Read the sheet, sum the stores, name the best seller*
+
+![Java](https://img.shields.io/badge/Built%20with-Java%2021-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/GUI-Java%20Swing-007396?style=flat-square&logo=java&logoColor=white)
+![Maven](https://img.shields.io/badge/Build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+![Zero Deps](https://img.shields.io/badge/Dependencies-Zero-8B5CF6?style=flat-square)
+
+<br/>
 
 ```
-1. Open your favorite IDE (IntelliJ IDEA, NetBeans or Eclipse)
-2. File → Open → Import as "Existing Maven Project"
-3. Wait for Maven to sync dependencies
-4. Locate: src/main/java/aula02/aplicacaoloja/Painel.java
-5. Right-click → "Run" (or press Shift + F10)
+"A spreadsheet is just a story about a business,
+ told one semicolon at a time."
 ```
-
----
-
-### 🎯 How to Use the Application
-
-| Step | Action |
-|:----:|:-------|
-| 1️⃣ | Start the application using the steps above. |
-| 2️⃣ | Click **File → Browse...** and select your `.csv` file. |
-| 3️⃣ | Click **File → Open...** to process and view the results. |
-| 4️⃣ | Check the **revenue per store** and **best-selling product** in the result fields. |
-| 5️⃣ | Use the **CLEAR** button to reset all fields and load a new file. |
-
----
-
-## 🤝 Contributing
-
-> Contributions are very welcome! Follow the steps below to collaborate.
-
-| Step | Action | Command |
-|:----:|:-------|:--------|
-| 1️⃣ | **Fork** the repository to your account. | — |
-| 2️⃣ | Create your feature branch from `main`. | `git checkout -b feature/NewFeature` |
-| 3️⃣ | Commit your changes with a clear, semantic message. | `git commit -m 'feat: Add NewFeature'` |
-| 4️⃣ | Push the branch to the remote repository. | `git push origin feature/NewFeature` |
-| 5️⃣ | Open a Pull Request detailing your changes. | — |
-
-<div align="center">
-
-<br>
-
-**If this project was useful for your studies, leave a star ⭐️ on the repository!**
-
-</div>
-
----
-
-## 👨‍💻 Author
-
-<div align="center">
-
-<br>
-
-**Victor H. J. Santiago**
-
-<br>
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VictorHJesusSantiago)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victor-henrique-de-jesus-santiago/)
-
-</div>
-
----
-
-## 📄 License
-
-<div align="center">
-
-This project is distributed under the **MIT License**.
-See the [`LICENSE`](./LICENSE) file in the repository for more information.
-
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-
-</div>
-
----
-
-<div align="center">
-
-*Made with 📊 and Java by **Victor H. J. Santiago***
 
 </div>
